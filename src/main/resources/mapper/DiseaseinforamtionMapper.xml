@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.DiseaseinformationMapper">
+
+<!--    查询规则-->
+    <resultMap id="DiseaseEntityMap" type="com.example.demo.bean.Diseaseinformation">
+        <result property="tid" column="tid"></result>
+        <result property="operation" column="operation"></result>
+        <result property="indications" column="indications"></result>
+        <result property="anaesthesia" column="anaesthesia"></result>
+        <result property="step" column="step"></result>
+        <result property="duration" column="duration"></result>
+        <result property="note" column="note"></result>
+        <result property="degree" column="degree"></result>
+        <result property="reprocess" column="reprocess"></result>
+        <result property="recovery" column="recovery"></result>
+        <result property="influence" column="influence"></result>
+        <result property="advantage" column="advantage"></result>
+        <result property="defect" column="defect"></result>
+        <result property="imageurl" column="imageurl"></result>
+    </resultMap>
+
+    <select id="selectall" resultMap="DiseaseEntityMap">
+        SELECT * FROM diseaseinformation
+    </select>
+</mapper>

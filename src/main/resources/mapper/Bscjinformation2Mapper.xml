@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.Bscjinformation2Mapper">
+
+<!--    查询规则-->
+    <resultMap id="Bscjinformation2EntityMap" type="com.example.demo.bean.Bscjinformation2">
+        <result property="id1" column="id1"></result>
+        <result property="id2" column="id2"></result>
+        <result property="information" column="information"></result>
+        <result property="imageurl" column="imageurl"></result>
+    </resultMap>
+<!--    查询语句-->
+    <select id="selectall" resultMap="Bscjinformation2EntityMap" >
+        select  * from bscjinformation2
+    </select>
+
+    <select id="selectbyid1" resultMap="Bscjinformation2EntityMap">
+        select  * from bscjinformation2 WHERE id1=#{id1}
+    </select>
+</mapper>

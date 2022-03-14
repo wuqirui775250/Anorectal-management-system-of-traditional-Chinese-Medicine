@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.XjarticleMapper">
+    <resultMap id="xjarticleEntityMa" type="com.example.demo.bean.Xjarticle">
+        <result property="articleid" column="articleid"></result>
+        <result property="typeid" column="typeid"></result>
+        <result property="actor" column="actor"></result>
+        <result property="title" column="title"></result>
+        <result property="publishtime" column="publishtime"></result>
+        <result property="article" column="article"></result>
+    </resultMap>
+    <resultMap id="xjarticles" type="com.example.demo.bean.Xjarticles">
+        <result property="articleid" column="articleid"></result>
+        <result property="title" column="title"></result>
+        <result property="article" column="article"></result>
+        <result property="publishtime" column="publishtime"></result>
+        <result property="type" column="typename"></result>
+        <result property="actor" column="actor"></result>
+    </resultMap>
+
+    <select id="getallarticle" resultMap="xjarticleEntityMa">
+        select  * from xjarticle
+    </select>
+    <insert id="insert" keyProperty="articleid">
+        insert into xjarticle(typeid,actor,title,article,publishtime) values (#{typeid},#{actor},#{title},#{article},#{publishtime})
+    </insert>
+
+    <delete id="deletebyarticleid">
+        delete from xjarticle where articleid=#{articleid}
+    </delete>
+</mapper>

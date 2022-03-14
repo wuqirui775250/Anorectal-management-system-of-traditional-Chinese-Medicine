@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.XjimageMapper">
+    <resultMap id="xjimageEntityMa" type="com.example.demo.bean.Xjimage">
+        <result property="imagename" column="imagename"></result>
+        <result property="imageurl" column="imageurl"></result>
+        <result property="imagetype" column="imagetype"></result>
+    </resultMap>
+    <select id="getallimage" resultMap="xjimageEntityMa">
+        SELECT * FROM xjimage
+    </select>
+
+    <insert id="insert" keyProperty="iid">
+        insert into xjimage(imagename,imageurl,imagetype) values (#{imagename},#{imageurl},#{imagetype})
+    </insert>
+
+    <delete id="deletebyiid">
+        delete from xjimage where iid=#{iid}
+    </delete>
+</mapper>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.GczswdsubjectMapper">
+    <resultMap id="GczswdsubjectUntils" type="com.example.demo.bean.Gczswdsubject">
+        <result property="sid" column="sid"></result>
+        <result property="cid" column="cid"></result>
+        <result property="subjects" column="subjects"></result>
+    </resultMap>
+
+    <select id="selectall" resultMap="GczswdsubjectUntils">
+        select * from gczswdsubject
+    </select>
+</mapper>

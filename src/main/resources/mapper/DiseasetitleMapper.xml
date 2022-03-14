@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.DiseasetitleMapper">
+
+<!--    查询规则-->
+    <resultMap id="DiseasetitleEntityMap" type="com.example.demo.bean.Diseasetitle">
+        <result property="tid" column="tid"></result>
+        <result property="did" column="did"></result>
+        <result property="title" column="title"></result>
+    </resultMap>
+
+    <select id="selectall" resultMap="DiseasetitleEntityMap">
+        SELECT * FROM diseasetitle
+    </select>
+</mapper>

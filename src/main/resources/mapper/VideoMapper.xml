@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.VideoMapper">
+
+<!--    查询规则-->
+    <resultMap id="VideoEntityMap" type="com.example.demo.bean.Video">
+        <result property="vid" column="vid"></result>
+        <result property="vtitle" column="vtitle"></result>
+        <result property="vinformation" column="vinformation"></result>
+        <result property="vurl" column="vurl"></result>
+        <result property="vaddtime" column="vaddtime"></result>
+        <result property="vstate" column="vstate"></result>
+    </resultMap>
+
+    <select id="selectall" resultMap="VideoEntityMap">
+           select  * from hospital.video
+    </select>
+
+    <select id="selectByvid" resultMap="VideoEntityMap">
+        select * from hospital.video where vid=#{vid};
+    </select>
+
+    <insert id="insert" keyProperty="vid">
+        insert into hospital.video(vtitle, vinformation, vurl, vaddtime, vstate) VALUES (#{vtitle},#{vinformation},#{vurl},#{vaddtime},#{vstate})
+    </insert>
+
+    <delete id="deletebyvid">
+        delete  from hospital.video where vid=#{vid}
+    </delete>
+
+    <update id="updatabyvid">
+        update hospital.video set vid=#{vid},vtitle=#{vtitle},vinformation=#{vinformation},vurl=#{vurl},vaddtime=#{vaddtime},vstate=#{vstate} where vid=#{vid}
+    </update>
+</mapper>

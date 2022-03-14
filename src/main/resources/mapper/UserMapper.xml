@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.UserMapper">
+
+<!--    查询规则-->
+    <resultMap id="UserEntityMap" type="com.example.demo.bean.User">
+        <result property="uid" column="uid"></result>
+        <result property="username" column="username"></result>
+        <result property="password" column="password"></result>
+        <result property="logintime" column="logintime"></result>
+    </resultMap>
+
+<!--    User类的插入语句-->
+<!--    <insert id="insert" useGeneratedKeys="true" keyProperty="id">-->
+<!--        INSERT INTO-->
+<!--            customer (username, password,phonenumber,address,cid)-->
+<!--        VALUES-->
+<!--            (#{username}, #{password},#{phonenumber},#{address},#{cid})-->
+<!--    </insert>-->
+
+<!--    User的查询语句-->
+    <select id="selectbyuid" resultMap="UserEntityMap">
+       select * from user where uid=#{uid}
+    </select>
+
+    <select id="selectbyusername" resultMap="UserEntityMap">
+        select  * from user where username=#{username}
+    </select>
+    <select id="selectall" resultMap="UserEntityMap">
+        select  * from user;
+    </select>
+
+<!--    插入语句-->
+    <insert id="insert" keyProperty="uid">
+        insert into user(username,password,logintime) values(#{username},#{password},#{logintime})
+    </insert>
+
+
+<!--    删除语句-->
+    <delete id="deleteByUidInteger">
+        delete from user where uid=#{uid}
+    </delete>
+</mapper>
